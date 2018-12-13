@@ -9,6 +9,7 @@ $sql = "select * from $table order by id";
 ?>
 <!-- Main Content -->
 <div class="page-wrapper">
+
     <div class="container pt-30">
         
         <!-- Alertas do sistema -->
@@ -51,9 +52,9 @@ $sql = "select * from $table order by id";
                                                 
                                                 $num_campos = num_campos($table,$pdo);
                                                 
-                                                if($num_campos > 8){
+                                                /*if($num_campos > 8){
                                                     $num_campos -= $num_campos - 8;
-                                                }
+                                                }*/
 
                                                 for($x=0;$x<$num_campos;$x++){
 
@@ -77,9 +78,9 @@ $sql = "select * from $table order by id";
                                                 
                                                 $num_campos = num_campos($table,$pdo);
                                                 
-                                                if($num_campos > 8){
+                                                /*if($num_campos > 8){
                                                     $num_campos -= $num_campos - 8;
-                                                }
+                                                }*/
 
                                                 for($x=0;$x<$num_campos;$x++){
 
@@ -98,9 +99,9 @@ $sql = "select * from $table order by id";
                                         // corpo da tabela
                                         echo "<tbody>";
                                                 
-                                            if($num_campos > 8){
+                                            /*if($num_campos > 8){
                                                 $num_campos -= $num_campos - 8;
-                                            }
+                                            }*/
 
                                             // Loop através dos registros recebidos
                                             while ($row = $sth->fetch(PDO::FETCH_ASSOC)){
@@ -111,12 +112,24 @@ $sql = "select * from $table order by id";
 
                                                         $campo = nome_campo($sth, $x);
                                                         
-                                                        echo "<td>".$row[$campo]."</td>";
+                                                        if(($table == "produto") && ($campo == "imagem")){
+
+                                                            echo "<td><img src='assets/img/".$row[$campo]."' class='img-thumbnail'></td>";    
                                                         
+                                                        }else if($campo == "senha"){
+                                                        
+                                                            echo "<td>".base64_encode($row[$campo])."</td>";
+                                                        
+                                                        }else{
+
+                                                            echo "<td>".$row[$campo]."</td>";
+
+                                                        }
+
                                                     }
 
                                                     echo "<td><a href='atualizar.php?t=".base64_encode($table)."&id=".$row['id']."'><button class='btn btn-primary btn-icon-anim'><i class='fa fa-pencil'></i></button></a></td>";
-                                                    echo "<td><a href='desativar.php?t=".base64_encode($table)."&id=".$row['id']."'><button class='btn btn-danger btn-icon-anim'><i class='fa fa-times'></i>  Desativar</button></a></td>";
+                                                    echo "<td><a href='desativar.php?t=".base64_encode($table)."&id=".$row['id']."'><button class='btn btn-danger btn-icon-anim'><i class='fa fa-times'></i></button></a></td>";
                                                     
                                                 echo "</tr>";
                                             }
@@ -140,8 +153,9 @@ $sql = "select * from $table order by id";
 
                 </div>
                 <!-- /Panel -->
-                </div>
-                <!-- /Col-sm-12 -->
+
+            </div>
+            <!-- /Col-sm-12 -->
 
         </div>
         <!-- /Row -->

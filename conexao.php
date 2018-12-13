@@ -53,7 +53,7 @@ if(isset($_GET['t'])){
 	//echo $table;
 }else{
 	
-	$url = explode("PHP-LeL/", $_SERVER['PHP_SELF']);
+	$url = explode("Git/lenemodas/", $_SERVER['PHP_SELF']);
 	$url = end($url);
 	$url = explode(".php", $url);
 

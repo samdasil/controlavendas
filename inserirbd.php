@@ -1,4 +1,5 @@
 <?php
+
 if(isset($_POST['enviar'])){
 
     $num_campos = num_campos($table,$pdo);
@@ -18,7 +19,7 @@ if(isset($_POST['enviar'])){
             $valores .= ":$campo";
         }
     }
-    //var_dump($_POST);
+    // var_dump($_FILES['imagem']['tmp_name']);
 
     $sql = "INSERT INTO $table ($campos) VALUES ($valores)";
     $sth = $pdo->prepare($sql);    
@@ -27,8 +28,39 @@ if(isset($_POST['enviar'])){
 		$select = $pdo->query("SELECT * FROM $table");
         $campo = nome_campo($select, $x);
 
-		$sth->bindParam(":$campo", $_POST["$campo"], PDO::PARAM_INT);
+        if(($table == "produto") && ($campo == "imagem")){
+        
+            $target  = "assets/img/".$_FILES['imagem']['name'];
+            $tamanho = $_FILES['imagem']['size'];
+            $imagem  = $_FILES['imagem']['name'];
+            $path    = $_FILES['imagem']['tmp_name'];
+            var_dump($_FILES);
+            if($imagem != "none"){
+        
+                /*$fp = fopen($imagem, "rb");
+                $conteudo = fread($fp, $tamanho);
+                $conteudo = addslashes($conteudo);
+                fclose($fp);*/
+
+                $sth->bindParam(":$campo", $imagem, PDO::PARAM_INT);
+                if(move_uploaded_file($path, $target)){
+                    $msg = "Sucesso ao salvar imagem";
+                }else{
+                    $msg = "Erro ao mover imagem";
+                }
+
+            }else{
+                $sth->bindParam(":$campo", $_POST["$campo"], PDO::PARAM_INT);
+            }
+            
+        }else{
+
+            $sth->bindParam(":$campo", $_POST["$campo"], PDO::PARAM_INT);
+
+        }
+		echo $msg;// valida se imagem foi movida ou nao
     }
+
     //echo $table;
     $executa = $sth->execute();
 

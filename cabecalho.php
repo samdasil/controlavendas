@@ -1,8 +1,10 @@
+<?php require_once 'session.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" http-equiv="Content-Type">
+        
         <title>LeL</title>
 
         <!-- Favicon -->
@@ -34,6 +36,7 @@
         <link href="assets/dist/css/style.css" rel="stylesheet" type="text/css">
     </head>
 <body>
+
         <!-- Preloader -->
         <div class="preloader-it">
             <div class="la-anim-1"></div>
@@ -48,7 +51,7 @@
                             <div class="logo-wrap">
                                 <a href="principal.php">
                                     <img class="brand-img" src="assets/img/logo.png" alt="brand" />
-                                    <span class="brand-text"><img  src="assets/img/brand.png" alt="brand"/></span>
+                                    <span class="brand-text"><img  src="assets/img/logo.png" alt="brand"/></span>
                                 </a>
                             </div>
                         </div>
@@ -103,7 +106,7 @@
                     
                     <%if(session.getAttribute("fun_tipo_funcionario_id").equals("Administrativo") || session.getAttribute("fun_tipo_funcionario_id").equals("Coletor")){%>-->
                     <li>
-                        <a href="inserir.php?t=<?php echo base64_encode("venda"); ?>" data-toggle="collapse" data-target="#ecom_dr">
+                        <a href="inserir.php?t=<?php base64_encode("venda");?>" data-toggle="collapse" data-target="#ecom_dr">
                             <div class="pull-left"><i class="ti-plus mr-20"></i><span class="right-nav-text">Realizar Venda</span></div>
                             <div class="clearfix"></div>
                         </a>
@@ -128,71 +131,11 @@
 
                     <li>
                         <a href="deslogar.php" data-toggle="collapse" data-target="#ecom_dr">
-                            <div class="pull-left"><i class="ti-close mr-20"></i><span class="right-nav-text">Sair</span></div>
+                            <div class="pull-left"><i class="ti-close mr-20"></i><span class="right-nav-text">Sair <?php echo "do ID: ".$usuario; ?></span></div>
                             <div class="clearfix"></div>
                         </a>
                     </li>
+                    
                 </ul>
             </div>
             <!-- /Left Sidebar Menu -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- TITULO CABEÇALHO ANTIGO
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Criador Automático</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" sizes="16x16 24x24 32x32 64x64"/>
-
-    <link href="./css/bootstrap.min.css" rel="stylesheet" media="screen"> 
-    <link href="./css/style.css" rel="stylesheet" media="screen"> 
-</head>
-
-    <div class="container cabecalho">
-    <div align="center">
-        <h1>Criador Automático de CRUDs</h1>
-    </div>
-</div>
-
-<br>
-
--->

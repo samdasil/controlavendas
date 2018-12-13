@@ -12,7 +12,9 @@ function num_campos($table,$pdo){
 
 // Nome de campo pelo número $x
 function nome_campo($sth, $x){
-        $meta = $sth->getColumnMeta($x);
-        $campo = $meta['name'];
+    $meta = $sth->getColumnMeta($x);
+    $campo = $meta['name'];
     return $campo;
 }
+
+?>

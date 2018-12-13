@@ -311,7 +311,7 @@ code {
 }
 
 .pt-30 {
-    padding-top: 0px !important;
+    /*padding-top: 30px !important;*/
 }
 
 .pt-35 {
@@ -879,7 +879,7 @@ code {
 }
 
 .txt-dark {
-    color: #272B34 !important;
+    color: #f9f9f9 !important;
 }
 
 .txt-light {
@@ -1232,6 +1232,8 @@ ul.uo-list {
 .container {
     max-width: 1280px;
     width: 100%;
+    background-image: url(../../img/background.png);
+    background-size: auto; 
 }
 
 
@@ -1581,8 +1583,8 @@ button.fc-agendaWeek-button,
 .btn-orange.fc-prev-button,
 .btn-orange.fc-next-button,
 .btn-orange.fc-today-button {
-    background: #8eab1c;
-    border: solid 1px #8eab1c;
+    background: #0b4dc7;
+    border: solid 1px #0b4dc7;
 }
 
 .btn.btn-orange:hover,
@@ -16600,7 +16602,7 @@ a#toggle_mobile_nav {
 }
 
 .card-view {
-    background: #fff;
+    background: #846e6e1a;
     margin-bottom: 12px;
     margin-left: -9px;
     margin-right: -9px;
@@ -17092,7 +17094,7 @@ footer .nav>li>a:hover {
 }
 
 .control-label {
-    color: #272B34;
+    color: #c4cbdc;
 }
 
 .input-group-addon {
@@ -23870,6 +23872,9 @@ ul.inbox-nav li a:focus {
 
 .page-wrapper.auth-page {
     background: #fff;
+    background-image: url(../../img/background.png);
+    background-size: 100%; 
+    background-repeat: no-repeat;
 }
 
 .sp-header {

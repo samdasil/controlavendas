@@ -12,7 +12,7 @@
         <link href="assets/vendors/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
         <!-- Custom CSS -->
-        <link href="assets/dist/css/style.css" rel="stylesheet" type="text/css">
+        <link href="assets/dist/css/style-l.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <!--Preloader-->
@@ -28,8 +28,8 @@
                 <div class="clearfix"></div>
             </header>
 
-            <?php
-                if(isset($_GET['erro']) && $_GET['erro'] != null){ ?>
+            <?php if(isset($_GET['erro']) && $_GET['erro'] != null){ ?>
+
             <div class="alert alert-danger alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
                 <strong>Senha incorreta!</strong> caso não lembre sua senha entre em contato com o suporte.
@@ -47,19 +47,19 @@
                                         <div class="mb-30">
                                             <h3 class="text-center txt-dark mb-10">
                                                 <a href="#">
-                                                    <span class="brand-text"><img  src="assets/img/cadeado.png" /></span><br>
-                                                </a>Faça seu Login</h3>
+                                                    <span class="brand-text"><img  src="assets/img/logo.png" /></span><br>
+                                                </a>Lene Modas</h3>
                                         </div>	
                                         <div class="form-wrap">
-                                            <form action="principal.php">
+                                            <form action="user-authentication.php" method="post">
                                                 <div class="form-group">
                                                     <label class="control-label mb-10" for="exampleInputEmail_2">Login</label>
-                                                    <input type="text" class="form-control" name="login" required="" id="exampleInputEmail_2">
+                                                    <input type="text" class="form-control" name="login" required id="exampleInputEmail_2" autofocus>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="pull-left control-label mb-10" for="exampleInputpwd_2">Senha</label>
                                                     <div class="clearfix"></div>
-                                                    <input type="password" class="form-control" name="senha" required="" id="exampleInputpwd_2">
+                                                    <input type="password" class="form-control" name="senha" required id="exampleInputpwd_2">
                                                 </div>
 
                                                 <div class="form-group text-center">
@@ -98,11 +98,3 @@
     </body>
 
 </html>
-
-<?php
-    /*if (isset($_GET['login'])) {
-        echo "<script>window.location.replace('index.php?erro=1');</script>";
-    } else {
-        echo "<script>window.location.replace('principal.php');</script>";
-    }*/
-?>
