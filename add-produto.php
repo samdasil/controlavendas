@@ -100,7 +100,6 @@
             <div class="input-group">
                 <input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
                 <input type="file" name="imagem" />
-                <div class="input-group-addon"><i class="icon-user"></i></div>
             </div>
         </div>
     </div>

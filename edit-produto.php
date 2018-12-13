@@ -1,6 +1,6 @@
 <?php
 
-    $sth = $pdo->prepare("SELECT * from $table a  INNER JOIN categoria c ON c.id = a.categoria WHERE a.id = :id");
+    $sth = $pdo->prepare("SELECT *, a.id as cod  from $table a  INNER JOIN categoria c ON c.id = a.categoria WHERE a.id = :id");
     $sth->bindValue(':id', $id, PDO::PARAM_STR); // No select e no delete basta um único bindValue
     $sth->execute();
 
@@ -11,14 +11,13 @@
     
     
     <input type="hidden" name="method" value="enviar"/>
-    <input type="hidden" name ="id" value="<?php echo $reg->id; ?>"/>
 
     <div class="row">
-        <div class="form-group col-md-12">
-            <label class="control-label mb-10" for="exampleInputuname_2">Nova Imagem</label>
+        <div class="form-group col-md-3">
+            <label class="control-label mb-10" for="exampleInputuname_2">ID*</label>
             <div class="input-group">
-                <input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
-                <input type="file" name="imagem"  />
+                <input type="number" placeholder="" value="<?php echo $reg->cod; ?>" name="id" class="form-control" readonly>
+                <div class="input-group-addon"><i class="icon-user"></i></div>
             </div>
         </div>
     </div>
@@ -106,6 +105,15 @@
             
                 <textarea type="text" placeholder="" value="<?php echo $reg->observacao; ?>" cols="2" rows="5" name="observacao" class="form-control" ></textarea>
             
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-12">
+            <label class="control-label mb-10" for="exampleInputuname_2">Imagem</label>
+            <img class="img-thumbnail" src="assets/img/<?php echo $reg->imagem; ?>"/>
+            <input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
+            <input type="file" name="imagem" value="" />
         </div>
     </div>
 

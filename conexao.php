@@ -37,7 +37,7 @@ if($sgbd == 'mysql'){
 try {
     $pdo = new PDO("$sgbd:host=$host;dbname=$db;", $user, $pass);
 	
-    echo "Conectado para o banco de dados <br>";
+    //echo "Conectado para o banco de dados <br>";
 
     // Fechar conexão com o banco de dados
     // $pdo = null;

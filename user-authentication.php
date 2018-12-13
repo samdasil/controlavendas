@@ -40,7 +40,7 @@
                 $regb = $sthb->fetch(PDO::FETCH_OBJ);
                 session_start();
                 $_SESSION['id'] = $rega->id;
-                echo "Minha ID: ".$_SESSION['id'];
+                //echo "Minha ID: ".$_SESSION['id'];
                 header("location:app/index.php?id=".base64_encode($_SESSION['id']));
                 //var_dump($rega);
             }else{
