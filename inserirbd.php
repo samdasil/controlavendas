@@ -1,14 +1,14 @@
 <?php
 
 if(isset($_POST['enviar'])){
-
+    
     $num_campos = num_campos($table,$pdo);
     $campos = '';
     $valores = '';
     //var_dump($sth);
     for($x=0;$x<$num_campos;$x++){
         $campo = nome_campo($sth, $x);
-        //echo $campo."  ".$x.",";
+        
         if($table != "itemvenda" && $x==0) continue;
 
 		if($x<$num_campos-1){
@@ -19,15 +19,14 @@ if(isset($_POST['enviar'])){
             $valores .= ":$campo";
         }
     }
-    // var_dump($_FILES['imagem']['tmp_name']);
-
+    
     $sql = "INSERT INTO $table ($campos) VALUES ($valores)";
-    $sth = $pdo->prepare($sql);    
+    $sth = $pdo->prepare($sql);   
     $table == "itemvenda" ? $x=0: $x=1;
     for($x;$x<$num_campos;$x++){
 		$select = $pdo->query("SELECT * FROM $table");
         $campo = nome_campo($select, $x);
-
+        
         if(($table == "produto") && ($campo == "imagem")){
         
             $target  = "assets/img/".$_FILES['imagem']['name'];
@@ -56,14 +55,13 @@ if(isset($_POST['enviar'])){
         }else{
 
             $sth->bindParam(":$campo", $_POST["$campo"], PDO::PARAM_INT);
-
+            
         }
-		echo $msg;// valida se imagem foi movida ou nao
+		//echo $msg;// valida se imagem foi movida ou nao
     }
-
-    //echo $table;
+    
     $executa = $sth->execute();
-
+    
     if($executa){
 
         if($table == "venda"){
@@ -72,15 +70,26 @@ if(isset($_POST['enviar'])){
             $rs  = $res->fetch();
             print "<script>location='add-items.php?t=".base64_encode("itemvenda")."&v=".base64_encode($rs['id'])."';</script>";
         }else if($table == "itemvenda"){
-            print "<script>location='add-items.php?t=".base64_encode("itemvenda")."&v=".base64_encode($rs['id'])."';</script>";
+            $sql = "UPDATE produto SET quantidade -= :quantidade WHERE id = :id";
+            $sth = $pdo->prepare($sql);
+            $sth->bindParam(':quantidade', $_POST['quantidade'], PDO::PARAM_INT);
+            $sth->bindParam(':id', $_POST['produto']);
+            $executa = $sth->execute();
+            if($executa){
+                print "<script>location='add-items.php?t=".base64_encode("itemvenda")."&v=".base64_encode($_POST['venda'])."';</script>";
+            }else{
+                echo "<script type='text/javascript'>alert('Erro ao dar baixa no estoque.'); return false;</script>";
+            }
+            
         }else{
             print "<script>location='$table.php?t=".base64_encode($table)."&success=adic';</script>";
         }
 
 
     }else{
-        echo "<br> Erro ao inserir os dados <br>";
+        echo "<br> Erro ao inserir os dados :";
     }
+    
 }
 
 ?>

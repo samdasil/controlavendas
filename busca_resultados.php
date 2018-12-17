@@ -127,9 +127,12 @@ $sql = "select * from $table order by id";
                                                         }
 
                                                     }
-
-                                                    echo "<td><a href='atualizar.php?t=".base64_encode($table)."&id=".$row['id']."'><button class='btn btn-primary btn-icon-anim'><i class='fa fa-pencil'></i></button></a></td>";
+                                                    if($table == "venda"){
+                                                        echo "<td><a href='add-items.php?t=".base64_encode("itemvenda")."&v=".base64_encode($row['id'])."'><button class='btn btn-primary btn-icon-anim'><i class='fa fa-pencil'></i></button></a></td>";
+                                                    }else{
+                                                        echo "<td><a href='atualizar.php?t=".base64_encode($table)."&id=".$row['id']."'><button class='btn btn-primary btn-icon-anim'><i class='fa fa-pencil'></i></button></a></td>";
                                                     echo "<td><a href='desativar.php?t=".base64_encode($table)."&id=".$row['id']."'><button class='btn btn-danger btn-icon-anim'><i class='fa fa-times'></i></button></a></td>";
+                                                    }
                                                     
                                                 echo "</tr>";
                                             }

@@ -66,7 +66,7 @@
         <div class="form-group col-md-2">
             <label class="control-label mb-10" for="exampleInputuname_2">Nº*</label>
             <div class="input-group">
-                <input type="text" placeholder="" value="" name="numero" class="form-control" required>
+                <input type="text" placeholder="" value="" name="numero" class="form-control" >
                 <div class="input-group-addon"><i class="icon-globe"></i></div>
             </div>
         </div>
@@ -76,21 +76,21 @@
         <div class="form-group col-md-2">
             <label class="control-label mb-10" for="exampleInputuname_2">UF</label>
             <div class="input-group">
-                <input type="text" placeholder="" value="" name="uf" class="form-control" required>
+                <input type="text" placeholder="" value="" name="uf" class="form-control" >
                 <div class="input-group-addon"><i class="icon-globe"></i></div>
             </div>
         </div>
         <div class="form-group col-md-5">
             <label class="control-label mb-10" for="exampleInputuname_2">Cidade</label>
             <div class="input-group">
-                <input type="text" placeholder="" value="" name="cidade" class="form-control" required>
+                <input type="text" placeholder="" value="" name="cidade" class="form-control" >
                 <div class="input-group-addon"><i class="icon-globe"></i></div>
             </div>
         </div>
         <div class="form-group col-md-5">
             <label class="control-label mb-10" for="exampleInputuname_2">Bairro</label>
             <div class="input-group">
-                <input type="text" placeholder="" value="" name="bairro" class="form-control" required>
+                <input type="text" placeholder="" value="" name="bairro" class="form-control" >
                 <div class="input-group-addon"><i class="icon-globe"></i></div>
             </div>
         </div>
@@ -100,7 +100,7 @@
     <div class="form-group">
         <label class="control-label mb-10" for="exampleInputuname_2">Complemento</label>
         <div class="input-group">
-            <input type="text" placeholder="" value="" name="complemento" class="form-control" required>
+            <input type="text" placeholder="" value="" name="complemento" class="form-control" >
             <div class="input-group-addon"><i class="icon-globe"></i></div>
         </div>
     </div>
@@ -109,7 +109,7 @@
     <div><hr></div>
     
     <div class="form-group">
-        <label class="control-label mb-10" for="exampleInputuname_2">Complemento</label>
+        <label class="control-label mb-10" for="exampleInputuname_2">Login de acesso ao App</label>
         <div class="input-group">
             <input type="text" placeholder="" value="" name="login" class="form-control" required>
             <div class="input-group-addon"><i class="icon-user"></i></div>
@@ -117,7 +117,7 @@
     </div>
 
     <div class="form-group">
-        <label class="control-label mb-10" for="exampleInputuname_2">Complemento</label>
+        <label class="control-label mb-10" for="exampleInputuname_2">Senha</label>
         <div class="input-group">
             <input type="password" placeholder="" value="" name="senha" class="form-control" required>
             <div class="input-group-addon"><i class="icon-key"></i></div>

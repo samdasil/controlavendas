@@ -123,7 +123,7 @@
     <div class="form-group">
         <label class="control-label mb-10" for="exampleInputuname_2">Senha</label>
         <div class="input-group">
-            <input type="password" placeholder="" value="<?php echo base64_encode($reg->senha); ?>" name="senha" class="form-control" required>
+            <input type="password" placeholder="" value="<?php echo $reg->senha; ?>" name="senha" class="form-control" required>
             <div class="input-group-addon"><i class="icon-key"></i></div>
         </div>
     </div>

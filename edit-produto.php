@@ -56,7 +56,7 @@
         <div class="form-group col-md-2">
             <label class="control-label mb-10" for="exampleInputuname_2">Quantidade*</label>
             <div class="input-group">
-                <input type="number" placeholder="" value="<?php echo $reg->quantidade; ?>" name="quantidade" class="form-control" required>
+                <input type="number" placeholder="" value="<?php echo $reg->quantidade; ?>" name="quantidade" class="form-control" readonly>
                 <div class="input-group-addon"><i class="icon-user"></i></div>
             </div>
         </div>
@@ -112,8 +112,9 @@
         <div class="form-group col-md-12">
             <label class="control-label mb-10" for="exampleInputuname_2">Imagem</label>
             <img class="img-thumbnail" src="assets/img/<?php echo $reg->imagem; ?>"/>
+            <input type="hidden" name="foto" value="<?php echo $reg->imagem; ?>"/>
             <input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
-            <input type="file" name="imagem" value="" />
+            <input type="file" name="imagem" value="<?php echo $reg->imagem; ?>" />
         </div>
     </div>
 

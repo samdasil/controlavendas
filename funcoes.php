@@ -17,4 +17,19 @@ function nome_campo($sth, $x){
     return $campo;
 }
 
+function deletarVenda($id,$pdo){
+
+    $sql = "DELETE FROM itemvenda WHERE venda = :id";
+    $sth = $pdo->prepare($sql);
+    $sth->bindParam(':id',$id,PDO::PARAM_INT);
+    $executa = $sth->execute();
+
+    if($executa){
+        $sql = "DELETE FROM venda WHERE id = :id";
+        $sth = $pdo->prepare($sql);
+        $sth->bindParam(':id', $id,PDO::PARAM_INT);
+        $sth->execute();
+    }
+    
+}
 ?>

@@ -3,16 +3,19 @@ require_once('./cabecalho.php');
 require_once('./conexao.php');
 
 // Receebr o id via POST deste arquivo ou via GET
-if(isset($_POST['enviar'])){
+/*if(isset($_POST['enviar'])){
     $sql = "SELECT * FROM itemvenda";
     $sth = $pdo->query($sql);
    
     $table=base64_decode($_GET['t']);
     $venda=base64_decode($_GET['v']);
+    echo $venda;
+    echo $table;
+    exit;
     $num_campos = num_campos($table,$pdo);
     require_once('./inserirbd.php');
 }else
-
+*/
 if(isset($_GET['t']) && isset($_GET['v'])){
     $table=base64_decode($_GET['t']);
     $venda=base64_decode($_GET['v']);
@@ -29,12 +32,16 @@ if(isset($_GET['t']) && isset($_GET['v'])){
 print '<h3 align="center">'.ucfirst($table).'</h3>';
 ?>
 <?php
-    $sql = "select sum(valorvenda) as 'Valor' from itemvenda i
+
+    $sql = "select sum(valorvenda) as 'valor' from itemvenda i
     inner join produto p on p.id = produto
     inner join venda v on v.id = venda
     where venda = $venda";
     $sth = $pdo->query($sql);
-    $valortotal = "teste";
+    
+    $valortotal = $sth->fetch(PDO::FETCH_OBJ);
+    $valortotal = $valortotal->valor;
+    
 ?>
 
 <!-- Main Content -->
@@ -74,7 +81,7 @@ print '<h3 align="center">'.ucfirst($table).'</h3>';
                                                 <div class="form-group col-md-3">
                                                     <label class="control-label mb-10" for="exampleInputuname_2">Quantidade</label>
                                                     <div class="input-group">
-                                                        <input type="number" placeholder="" value="" name="quantidade" class="form-control" autofocus required>
+                                                        <input type="number" placeholder="" value="" min='1' name="quantidade" class="form-control" autofocus required>
                                                         <div class="input-group-addon"><i class="icon-user"></i></div>
                                                     </div>
                                                 </div>
@@ -84,7 +91,7 @@ print '<h3 align="center">'.ucfirst($table).'</h3>';
                                                 <button type="submit" name="enviar" class="btn btn-primary  mr-10">Adiciona</button>
                                             </div>
                                         </form>
-<hr>
+                                        <hr>
                                             <div class="panel-heading">
                                                 <div class="pull-left">
                                                     <h6 class="panel-title txt-dark">Lista de produtos adicionados </h6>
@@ -115,9 +122,9 @@ print '<h3 align="center">'.ucfirst($table).'</h3>';
                                                                         $sth = $pdo->query($sql);
                                                                         $num_campos = $sth->columnCount();
                                                                         
-                                                                        if($num_campos > 8){
+                                                                        /*if($num_campos > 8){
                                                                             $num_campos -= $num_campos - 8;
-                                                                        }
+                                                                        }*/
                                                                         for($x=0;$x<$num_campos;$x++){
 
                                                                             $campo = nome_campo($sth, $x);
@@ -138,9 +145,9 @@ print '<h3 align="center">'.ucfirst($table).'</h3>';
                                                                         $sth = $pdo->query($sql);
                                                                         
                                                                         $num_campos = $sth->columnCount();
-                                                                        if($num_campos > 8){
+                                                                        /*if($num_campos > 8){
                                                                             $num_campos -= $num_campos - 8;
-                                                                        }
+                                                                        }*/
                                                                         for($x=0;$x<$num_campos;$x++){
 
                                                                             $campo = nome_campo($sth, $x);
@@ -160,9 +167,9 @@ print '<h3 align="center">'.ucfirst($table).'</h3>';
                                                                     while ($row = $sth->fetch(PDO::FETCH_ASSOC)){
 
                                                                         echo "<tr>";
-                                                                            if($num_campos > 8){
+                                                                            /*if($num_campos > 8){
                                                                                 $num_campos -= $num_campos - 8;
-                                                                            }
+                                                                            }*/
                                                                             for($x=0;$x<$num_campos;$x++){
 
                                                                                 $campo = nome_campo($sth, $x);
@@ -171,7 +178,7 @@ print '<h3 align="center">'.ucfirst($table).'</h3>';
                                                                                 
                                                                             }
 
-                                                                            echo "<td><a href='desativar.php?t=".base64_encode($table)."&v=".$row['venda']."'><button class='btn btn-danger btn-icon-anim'><i class='fa fa-times'></i>  Desativar</button></a></td>";
+                                                                            echo "<td><a href='desativar.php?t=".base64_encode($table)."&id=".$row['venda']."&p=".$row['produto']."'><button class='btn btn-danger btn-icon-anim'><i class='fa fa-times'></i>  Desativar</button></a></td>";
                                                                             
                                                                         echo "</tr>";
                                                                     }
@@ -192,17 +199,18 @@ print '<h3 align="center">'.ucfirst($table).'</h3>';
 
                                             </div>
                                             <!-- /Panel-wrapper -->
-
+                                            <hr>
                                             <div class="panel-heading">
                                                 <div class="pull-left">
-                                                    <h2 class="panel-title txt-blue">Valor Total =  <?php echo $valortotal[0]; ?></h2>
+                                                    <h3 class="panel-title">Valor Total =  <?php echo $valortotal; ?></h3>
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </div>
+                                            <hr>
                                             <input name="id" type="hidden" value="<?php echo $venda; ?>">
                                             <div class="form-group mb-0">
-                                                <button type="submit" name="enviar" class="btn btn-primary  mr-10">Adiciona</button>
-                                                <a href="desativar.php?t=<?php echo base64_encode("venda") ?>&id=<?php echo base64_encode($row['id']);?>"><button type='button' class='btn btn-warning  mr-10'>Cancelar</button></a>
+                                                <!--<button type="submit" name="enviar" class="btn btn-primary  mr-10">Adiciona</button>-->
+                                                <a href="desativar.php?t=<?php echo base64_encode("venda") ?>&id=<?php echo $venda;?>"><button type='button' class='btn btn-warning  mr-10'>Cancelar Venda</button></a>
                                                 <a href="fin-venda.php?t=<?php echo base64_encode("venda") ?>&id=<?php echo base64_encode($row['id']);?>"><button type='button' class='btn btn-success  mr-10'>Finalizar Venda</button></a>
                                             </div>
                                         </div>
@@ -212,6 +220,11 @@ print '<h3 align="center">'.ucfirst($table).'</h3>';
                                 </div>
 
 <?php
+
+    $sql = "select * from itemvenda";
+                            
+    $sth = $pdo->query($sql);
+
+require_once('./inserirbd.php');
 require_once('./rodape.php');
 ?>
-

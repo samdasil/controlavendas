@@ -36,7 +36,7 @@ print '<h3 align="center">'.ucfirst($table).'</h3>';
                                     <div class="form-wrap">
                                         <form action="atualizar.php?t=<?php echo base64_encode($table); ?>&id=<?php echo $id ; ?>" method="post" enctype="multipart/form-data" >
                                             
-                                            <?php require_once "edit-".$table.".php"; ?>
+                                            <?php require_once "edit-".strtolower($table).".php"; ?>
 
                                         </form>
 

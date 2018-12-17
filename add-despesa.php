@@ -12,7 +12,7 @@
         <div class="form-group col-md-12">
             <label class="control-label mb-10" for="exampleInputuname_2">Descrição*</label>
             <div class="input-group">
-                <input type="text" placeholder="" value="" name="descricao" class="form-control" required>
+                <input type="text" placeholder="" value="" name="descricao" class="form-control" required autofocus>
                 <div class="input-group-addon"><i class="icon-user"></i></div>
             </div>
         </div>
@@ -40,7 +40,7 @@
         <div class="form-group col-md-12">
             <label class="control-label mb-10" for="exampleInputuname_2">Observação*</label>
             <div class="input-group">
-                <input type="text" placeholder="" value="" name="observacao" class="form-control" required>
+                <input type="text" placeholder="" value="" name="observacao" class="form-control" >
                 <div class="input-group-addon"><i class="icon-pencil"></i></div>
             </div>
         </div>

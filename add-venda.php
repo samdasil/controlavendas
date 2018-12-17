@@ -19,8 +19,7 @@
                         $res = $pdo->query($sql);
                         while($row = $res->fetch(PDO::FETCH_ASSOC)){
                             echo "<option value='".$row['id']."'> ".$row['nome']." </option>";    
-                    ?>
-                    <?php } ?>                    
+                    } ?>                    
                 </select>
                 <div class="input-group-addon"><i class="icon-size"></i></div>
             </div>
@@ -46,7 +45,7 @@
         <input type="hidden" name="valortotal" value="0" >
         <input type="hidden" name="valorpago" value="0" >
         <input type="hidden" name="parcela" value="0" >
-        <input type="hidden" name="data" value="<?php echo date('Y-m-d'); ?>" >
+        <input type="hidden" name="datavenda" value="<?php echo date('Y-m-d'); ?>" >
         <input type="hidden" name="situacao" value="aberta" >
 
     <div class="form-group mb-0">

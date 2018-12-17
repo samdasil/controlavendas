@@ -42,7 +42,7 @@
         <div class="form-group col-md-2">
             <label class="control-label mb-10" for="exampleInputuname_2">Quantidade*</label>
             <div class="input-group">
-                <input type="number" placeholder="" value="" name="quantidade" class="form-control" required>
+                <input type="number" placeholder="" value="" min='1' name="quantidade" class="form-control" required>
                 <div class="input-group-addon"><i class="icon-user"></i></div>
             </div>
         </div>

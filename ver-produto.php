@@ -77,7 +77,7 @@ require_once './conexao.php';
                                         echo "<td>"; ?>
                                         
                                         <div class="card" style="width: 18rem;">
-                                            <img class="img-thumbnail" src="assets/img/<?php echo $row['imagem']; ?>" alt="Imagem de capa do card">
+                                            <img class="img-thumbnail" src="assets/img/<?php echo $row['imagem']; ?>" alt="<?php echo $row['imagem']; ?>">
                                             <div class="card-body">
                                                 <h5 class="card-title"><strong>ID          : </strong><?php echo $row['cod']; ?></h5>
                                                 <p class="card-text"><strong>Descrição   : </strong><?php echo $row['detalhe']; ?></p>

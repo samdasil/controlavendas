@@ -1,0 +1,71 @@
+
+
+
+Levantamento de Requisitos - App de controle de vendas a vulso
+
+categoria
+- codigo
+- descricao
+
+imagem
+- codigo
+- descricao
+
+produto
+- codigo
+- categoria[]
+- descricao
+- sku
+- tamanho
+- imagem[]
+- qtd
+- valorCompra
+- valorVenda
+- observacao
+
+
+cliente
+- codigo
+- nome
+- celular
+- email
+- tamanho
+- endereco (cep, rua, bairro, cidade, uf) *webservice
+- númeroCasa
+- complemento
+- situacao
+
+despesa
+- codigo
+- descricao
+- data
+- valor
+- observacao
+
+venda
+- codigo
+- cliente[]
+- funcionario[]
+- valorTotal
+- valorPago
+- qtdParcela
+- dataCompra
+
+funcionario
+- codigo
+- nome
+- acesso[]
+
+acesso
+- login
+- senha
+
+pagamento
+- codigo
+- cliente[]
+- funcionario[]
+- venda
+- valor
+- data
+
+

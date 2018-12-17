@@ -106,7 +106,7 @@
                     
                     <%if(session.getAttribute("fun_tipo_funcionario_id").equals("Administrativo") || session.getAttribute("fun_tipo_funcionario_id").equals("Coletor")){%>-->
                     <li>
-                        <a href="inserir.php?t=<?php base64_encode("venda");?>" data-toggle="collapse" data-target="#ecom_dr">
+                        <a href="inserir.php?t=<?php echo base64_encode("venda");?>" data-toggle="collapse" data-target="#ecom_dr">
                             <div class="pull-left"><i class="ti-plus mr-20"></i><span class="right-nav-text">Realizar Venda</span></div>
                             <div class="clearfix"></div>
                         </a>

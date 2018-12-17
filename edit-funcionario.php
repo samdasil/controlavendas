@@ -51,7 +51,7 @@
         <div class="form-group col-md-6">
             <label class="control-label mb-10" for="exampleInputuname_2">Senha* (5 catacteres)</label>
             <div class="input-group">
-                <input type="password" placeholder="" data-mask="*****" value="<?php echo base64_encode($reg->id); ?>" name="senha" class="form-control" required>
+                <input type="password" placeholder="" value="<?php echo base64_encode($reg->id); ?>" name="senha" class="form-control" required>
                 <div class="input-group-addon"><i class="icon-key"></i></div>
             </div>
         </div>
