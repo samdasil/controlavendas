@@ -47,7 +47,7 @@
                                         <div class="mb-30">
                                             <h3 class="text-center txt-dark mb-10">
                                                 <a href="#">
-                                                    <span class="brand-text"><img  src="assets/img/logo.png" /></span><br>
+                                                    <span class="brand-text"><img  src="assets/img/logo-lenemodas.png" /></span><br>
                                                 </a>Lene Modas</h3>
                                         </div>	
                                         <div class="form-wrap">
