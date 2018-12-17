@@ -50,8 +50,8 @@
                         <div class="nav-header pull-left">
                             <div class="logo-wrap">
                                 <a href="principal.php">
-                                    <img class="brand-img" src="assets/img/logo.png" alt="brand" />
-                                    <span class="brand-text"><img  src="assets/img/logo.png" alt="brand"/></span>
+                                    <img class="brand-img" src="assets/img/logo-lenemodas.png" alt="brand" />
+                                    <span class="brand-text"><img  src="assets/img/logo-lenemodas.png" alt="brand"/></span>
                                 </a>
                             </div>
                         </div>
